@@ -24,10 +24,9 @@
 
 ## 文档和字段
 
-elasticsearch是面向**文档（Document）**存储的，可以是数据库中的一条商品数据，一个订单信息。文档数据会被序列化为json格式后存储在elasticsearch中：
+elasticsearch是面向**文档（Document）** 存储的，可以是数据库中的一条商品数据，一个订单信息。文档数据会被序列化为json格式后存储在elasticsearch中：
 
-<img src="图集/image-20210720202707797.png" alt="image-20210720202707797" style="zoom: 25%;" />
-
+![](图集/image-20210720202707797.png)
 而Json文档中往往包含很多的**字段（Field）**，类似于数据库中的列。
 
 ## 正向索引
