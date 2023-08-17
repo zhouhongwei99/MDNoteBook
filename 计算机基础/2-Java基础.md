@@ -1102,6 +1102,7 @@ extends Callback{
 ### 三种IO模型BIO/NIO/AIO
 
 **BIO**：**同步阻塞**IO模型。（阻塞是指**线程没有获得CPU资源**）
+
 ![](图集/image-20230320205612755.png)
 **一个连接一个线程**，BIO**一般适用于连接数目小且固定的架构**，这种方式对于服务器资源要求比较高。
 
@@ -1164,7 +1165,7 @@ new BufferedInputStream(new FileInputStream(inputStream));
 - **Vector**：比Arraylist多了个**同步化机制**。
 - **Stack**：栈，也是线程安全的，**继承于Vector**。
 
-线性不安全的：
+线程不安全的：
 
 - Arraylist、LinkedList
 - HashSet、TreeSet
@@ -1190,7 +1191,7 @@ new BufferedInputStream(new FileInputStream(inputStream));
 - **Vector是线程安全的**，ArrayList不是。其中，**Vector在关键性的方法前面都加了synchronized关键字**。
 - **ArrayList扩容0.5倍，Vector是扩容1倍**，这样ArrayList就有利于节约内存空间。
 
-### 	ArrayList 和 LinkedList
+### ArrayList 和 LinkedList
 
 1. **是否保证线程安全：** **都是不同步**的，也就是**不保证线程安全**；
 2. **底层数据结构：** `ArrayList` 底层使用的是 **`Object` 数组**；`LinkedList` 底层使用的是 **双向循环链表** 数据结构（JDK1.6 之前为循环链表，JDK1.7 取消了循环。）
