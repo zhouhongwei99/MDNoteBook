@@ -32,7 +32,7 @@ IOC就是**控制反转**，是指创建对象的控制权的转移。创建对�
 
 Spring 容器使用**DI依赖注入**来管理组成应用程序的组件。容器通过**读取提供的配置元数据来接收对象进行实例化，配置和组装的指令**。该元数据可以通过 **XML**，**Java 注解**或 **Java 代码**提供。
 
-<img src="图集/3101171-33099411d16ca051.png" alt="image.png" style="zoom: 50%;" /> 
+![image.png](图集/3101171-33099411d16ca051.png) 
 
 使用java的**反射机制**，根据配置文件在**运行时**动态的去创建对象以及管理对象，并调用对象的方法。
 
@@ -826,7 +826,7 @@ Spring 最初最核心的**两大核心功能 Spring Ioc 和 Spring Aop** 成就
 
 **JSR(Java Specification Requests）** 是一套 JavaBean 参数校验的标准
 
-<img src="图集/image-20230610222309567.png" alt="image-20230610222309567" style="zoom:25%;" />
+![image-20230610222309567](图集/image-20230610222309567.png)
 
 **验证请求体用@Valid**
 
@@ -910,7 +910,7 @@ Spring 最初最核心的**两大核心功能 Spring Ioc 和 Spring Aop** 成就
 
 Spring Security的执行流程如下：
 
-<img src="图集/image-20230610213214377.png" alt="image-20230610213214377" style="zoom: 33%;" />
+![image-20230610213214377](图集/image-20230610213214377.png)
 
 1.用户提交用户名、密码被SecurityFilterChain中的UsernamePasswordAuthenticationFilter过滤器获取到，封装为请求Authentication，通常情况下是UsernamePasswordAuthenticationToken这个实现类。
 
@@ -948,13 +948,13 @@ Spring Security在执行认证时，会根据用户提交的用户名，自动�
 
 本项目在资源服务内部进行授权，基于资源的授权模式，因为接口在资源服务，通过在接口处添加授权注解**@PreAuthorize**("hasAuthority('权限标识符')")实现授权。没权限会抛**AccessDeniedException**异常，这里需要**添加到全局自定义异常返回给前端**
 
-<img src="图集/image-20230610211811173.png" alt="image-20230610211811173" style="zoom: 25%;" />
+![image-20230610211811173](图集/image-20230610211811173.png)
 
 user表，角色表，权限表和2张关系表，根据userId查角色，根据角色查对应的权限   在认证通过后需要根据userId查对应权限，把一些要传的**user信息**（Id，头像，账号，**密码要置空**）转**json**放在**username**里，查到的**权限**放在**authentication**里，封装成**UserDetails**，最后由此生成**JWT令牌**，每次携带JWT请求接口时就解析JWT中**authorities**判断是否有这个接口的权限。
 
 ## JWT
 
-<img src="图集/image-20230610195827375.png" alt="image-20230610195827375"  />
+![image-20230610195827375](图集/image-20230610195827375.png)
 
 JWT 本质上就是一组字串`xxxxx.yyyyy.zzzzz`，通过（`.`）切分成三个为 Base64 编码的部分：
 
@@ -1029,7 +1029,7 @@ Nacos采用了数据的分级存储模型，最外层是Namespace，用来隔离
 
 对应到Java代码中，Nacos采用了一个多层的Map来表示。结构为Map<String, Map<String, Service>>，其中最外层Map的key就是namespaceId，值是一个Map。内层Map的key是group拼接serviceName，值是Service对象。Service对象内部又是一个Map，key是集群名称，值是Cluster对象。而Cluster对象内部维护了Instance的集合。
 
-<img src="图集/image-20210925215305446.png" alt="image-20210925215305446" style="zoom:33%;" />
+![image-20210925215305446](图集/image-20210925215305446.png)
 
 ## Nacos如何抗压
 
@@ -1054,7 +1054,7 @@ Nacos在**更新实例列表时**，会采用**CopyOnWrite**技术，首先将�
 
 Sentinel是基于**信号量（计数器）**实现的线程隔离，**不用创建线程池**，**性能较好**，但是**隔离性一般**。
 
-<img src="图集/image-20230520154816611.png" alt="image-20230520154816611" style="zoom: 25%;" />
+![image-20230520154816611](图集/image-20230520154816611.png)
 
 ## Sentinel与Gateway限流
 
@@ -1072,15 +1072,15 @@ Sentinel是基于**信号量（计数器）**实现的线程隔离，**不用创
 
 3.**漏桶**算法(Leaky Bucket)
 
-<img src="图集/image-20230520155249320.png" alt="image-20230520155249320" style="zoom: 25%;" />
+![image-20230520155249320](图集/image-20230520155249320.png)
 
-<img src="图集/image-20230520155424199.png" alt="image-20230520155424199" style="zoom:25%;" />
+![image-20230520155424199](图集/image-20230520155424199.png)
 
-<img src="图集/image-20230520155443804.png" alt="image-20230520155443804" style="zoom:25%;" />
+![image-20230520155443804](图集/image-20230520155443804.png)
 
-<img src="图集/image-20230520155459324.png" alt="image-20230520155459324" style="zoom:25%;" />
+![image-20230520155459324](图集/image-20230520155459324.png)
 
-<img src="图集/image-20230520155522891.png" alt="image-20230520155522891" style="zoom: 25%;" />
+![image-20230520155522891](图集/image-20230520155522891.png)
 
 # ==Sentinel==
 
@@ -1151,11 +1151,11 @@ Sentinel 具有以下特征:
 
 **线程隔离**：可以限定每个业务能使用的线程数，避免耗尽整个tomcat的资源，因此也叫线程隔离。
 
-<img src="图集/image-20210715173215243.png" alt="image-20210715173215243" style="zoom: 33%;" />
+![image-20210715173215243](图集/image-20210715173215243.png)
 
 **降级熔断**：由**断路器**统计业务执行的请求数量，异常比例，如果超出阈值则会**熔断**该业务，拦截访问该业务的一切请求。
 
-<img src="图集/image-20210715173428073.png" alt="image-20210715173428073" style="zoom:25%;" />
+![image-20210715173428073](图集/image-20210715173428073.png)
 
 # 限流
 
@@ -1243,7 +1243,7 @@ warm up也叫**预热模式**，是**应对服务冷启动**的一种方案。�
 
 例如，我设置QPS的maxThreshold为10，预热时间为5秒，那么初始阈值就是 10 / 3 ，也就是3，然后在5秒后逐渐增长到10.
 
-<img src="图集/image-20210716110629796.png" alt="image-20210716110629796" style="zoom:33%;" />
+![image-20210716110629796](图集/image-20210716110629796.png)
 
 ### 排队等待
 
@@ -1270,7 +1270,7 @@ warm up也叫**预热模式**，是**应对服务冷启动**的一种方案。�
 
 例如，一个根据id查询商品的接口：
 
-<img src="图集/image-20210716115014663.png" alt="image-20210716115014663" style="zoom: 33%;" />
+![image-20210716115014663](图集/image-20210716115014663.png)
 
 访问/goods/{id}的请求中，id参数值会有变化，热点参数限流会根据参数值分别统计QPS，统计结果：
 
@@ -1290,7 +1290,7 @@ warm up也叫**预热模式**，是**应对服务冷启动**的一种方案。�
 
 而在实际开发中，可能部分商品是热点商品，例如**秒杀商品**，我们希望这部分商品的QPS限制与其它商品**不一样**，高一些。那就需要配置热点参数限流的**参数例外选项**了：
 
-<img src="图集/image-20210716115717523.png" alt="image-20210716115717523" style="zoom: 50%;" />
+![image-20210716115717523](图集/image-20210716115717523.png)
 
 结合上一个配置，这里的含义是对0号的long类型参数限流，每1秒相同参数的QPS不能超过5，有两个例外：
 
@@ -1386,7 +1386,7 @@ public interface UserClient {
 
 线程隔离有两种方式实现：
 
-<img src="图集/image-20210716123036937.png" alt="image-20210716123036937" style="zoom: 33%;" />
+![image-20210716123036937](图集/image-20210716123036937.png)
 
 **线程池隔离**：给每个服务调用业务分配一个线程池，利用**线程池本身实现隔离**效果
 
@@ -1396,7 +1396,7 @@ public interface UserClient {
 
 - 基于计数器模式，**简单，开销小**
 
-<img src="图集/image-20210716123240518.png" alt="image-20210716123240518" style="zoom:33%;" />
+![image-20210716123240518](图集/image-20210716123240518.png)
 
 
 
@@ -1406,7 +1406,7 @@ public interface UserClient {
 
 断路器控制熔断和放行是通过**状态机**来完成的：
 
-<img src="图集/image-20210716130958518.png" alt="image-20210716130958518" style="zoom:50%;" />
+![image-20210716130958518](图集/image-20210716130958518.png)
 
 - **closed**：关闭状态，断路器**放行所有请求**，并开始**统计异常比例**、**慢请求比例**。**超过阈值则切换到open状态**
 - **open**：打开状态，访问被熔断服务的请求会**被拒绝**，**直接走降级逻辑**。**Open**状态在**熔断时长**后会进入**half-open**状态
@@ -1607,11 +1607,11 @@ public class SentinelExceptionHandler implements BlockExceptionHandler {
 
 - **pull**模式：控制台将配置的规则推送到Sentinel客户端，而客户端会将配置规则保存在**本地文件**或**数据库**中。以后会**定时**去本地文件或数据库中查询，更新本地规则。
 
-<img src="图集/image-20210716154155238.png" alt="image-20210716154155238" style="zoom:50%;" />
+![image-20210716154155238](图集/image-20210716154155238.png)
 
 - **push**模式：控制台将配置规则推送到**远程配置中心**，例如**Nacos**。**Sentinel客户端监听Nacos，获取配置变更的推送消息，完成本地配置更新。**
 
-<img src="图集/image-20210716154215456.png" alt="image-20210716154215456" style="zoom:50%;" />
+![image-20210716154215456](图集/image-20210716154215456.png)
 
 
 
@@ -1730,13 +1730,13 @@ Caffeine提供了三种**缓存清除策略**：
 
 1）基于**MQ**的异步通知：
 
-<img src="图集/image-20210821115552327.png" alt="image-20210821115552327" style="zoom: 33%;" />
+![image-20210821115552327](图集/image-20210821115552327.png)
 
 依然有**少量代码侵入**。
 
 2）基于**Canal**的通知
 
-<img src="图集/image-20210821115719363.png" alt="image-20210821115719363" style="zoom: 33%;" />
+![image-20210821115719363](图集/image-20210821115719363.png)
 
 **代码零侵入**
 
@@ -1746,7 +1746,7 @@ Caffeine提供了三种**缓存清除策略**：
 
 Canal是**基于mysql的主从同步**来实现的，Canal就是把自己**伪装成MySQL的一个slave节点**，从而监听master的**binary log变化**。再把得到的变化信息通知给Canal的客户端，进而完成对其它数据库的同步。
 
-<img src="图集/image-20210821115948395.png" alt="image-20210821115948395" style="zoom: 33%;" />
+![image-20210821115948395](图集/image-20210821115948395.png)
 
 不过这里我们会使用GitHub上的**第三方开源的canal-starter客户端**。地址：https://github.com/NormanGyllenhaal/canal-client，与SpringBoot完美整合，自动装配，比官方客户端要简单好用很多。
 
@@ -2130,7 +2130,7 @@ Seata官网对于Saga的指南：https://seata.io/zh-cn/docs/user/saga.html
 
 分布式事务执行过程中，依次执行各参与者的正向操作，如果所有正向操作均执行成功，那么分布式事务提交。如果任何一个正向操作执行失败，那么分布式事务会去退回去执行前面各参与者的逆向回滚操作，回滚已提交的参与者，使分布式事务回到初始状态。
 
-<img src="图集/image-20210724184846396.png" alt="image-20210724184846396" style="zoom:33%;" />
+![image-20210724184846396](图集/image-20210724184846396.png)
 
 Saga也分为两个阶段：
 
