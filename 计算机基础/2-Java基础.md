@@ -104,6 +104,9 @@ instanceof：判断一个对象是否为一个类的实例。编译器会检查 
 
 **一个对象的 finalize 方法只会被调用一次，finalize 被调用不一定会立即回收该对象**，所以有可能调用 finalize 后，该对象又不需要被回收了，然后到了真正要被回收的时候，因为前面调用过一次，所以不会再次调用 finalize 了，进而产生问题，因此**不推荐使用 finalize 方法**。
 
+[try-catch-finally 中哪个部分可以省略？](#try-catch-finally%20中哪个部分可以省略？)
+
+
 ## static 关键字
 
 ### 代码块执行顺序
